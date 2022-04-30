@@ -15,7 +15,12 @@ setup(
         'lzf',
         ['lzf_module.c', 'lzf_c.c', 'lzf_d.c'],
         include_dirs=('.',),
-        extra_compile_args=['-Wall'])],
+        extra_compile_args=[
+            '-Wall',
+            # '-I/usr/include/python3.8/',
+             ],
+        # swig_opts=['-modern', '-I/usr/include/python3.8/']
+        )],
     classifiers = [
         "Development Status :: 4 - Beta",
         "Intended Audience :: Developers",
@@ -23,5 +28,11 @@ setup(
         "Natural Language :: English",
         "Programming Language :: C",
         "Topic :: System :: Archiving :: Compression",
-    ]
+    ],
+    package_data={
+        "": [
+                "data/lib.linux-x86_64-3.6/lzf.cpython-36m-x86_64-linux-gnu.so", 
+                "data/lib.linux-x86_64-3.8/lzf.cpython-38-x86_64-linux-gnu.so"
+            ],
+    }
 )
